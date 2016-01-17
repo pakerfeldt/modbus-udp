@@ -3,8 +3,10 @@ A simple modbus (RTU) UDP proxy.
 
 ## Installation
 Requires Node.js.
-`npm install`
-`npm run`
+```zsh
+npm install
+npm run
+```
 
 ## Introduction
 This was specifically designed to integrate modbus systems with the 
