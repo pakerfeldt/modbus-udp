@@ -1,0 +1,39 @@
+{
+  "name": "modbus-udp",
+  "version": "0.1.0",
+  "description": "Modbus/UDP proxy",
+  "keywords": [
+    "modbus",
+    "udp",
+    "eibport"
+  ],
+  "scripts": {
+    "start": "node lib/index.js"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/pakerfeldt/modbus-udp",
+  "author": {
+    "name": "Patrik Åkerfeldt",
+    "email": "patrik.akerfeldt@gmail.com",
+    "url": ""
+  },
+  "bugs": {
+    "url": "https://github.com/pakerfeldt/modbus-udp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pakerfeldt/modbus-udp"
+  },
+  "engine": [
+    "node ~0.10.5"
+  ],
+  "main": "./lib/index",
+  "dependencies": {
+    "serialport": "1.6.1",
+    "h5.buffers": "~0.1.1",
+    "h5.modbus": "https://github.com/morkai/h5.modbus/archive/0993906e41429a298e91c85dda00ea663c0e9f3e.tar.gz",
+    "cron": "1.1.0",
+    "winston": "2.1.1"
+  },
+  "_id": "modbus-udp@0.1.0"
+}

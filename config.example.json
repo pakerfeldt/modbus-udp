@@ -1,0 +1,47 @@
+{
+  "localport": 51100,
+  "host": "192.168.1.250",
+  "port": 51100,
+  "defaultPoll": "00 * * * * *",
+  "modbusNetworks": [
+    {
+      "name": "ftx",
+      "serialport": "/dev/rs485",
+      "options": {
+        "baudrate": 9600,
+        "parity": "none"
+      },
+      "registers": [{
+        "id": "temp_setpoint",
+        "slaveid": 1,
+        "type": "holding",
+        "address": 0,
+        "converter": "tenths",
+        "length": 1
+      }
+    ]
+    },
+    {
+      "name": "alpha",
+      "serialport": "/dev/ttyUSB3",
+      "options": {
+        "baudrate": 9600,
+        "parity": "even"
+      },
+      "registers": [{
+        "id": ["dhw_time", "dhw_setpoint"],
+        "slaveid": 3,
+        "type": "input",
+        "address": 206
+      }, {
+        "id": ["import_wh", "export_wh"],
+        "slaveid": 4,
+        "type": "input",
+        "address": 72,
+        "length": 2,
+        "converter": "float32"
+      }
+    ]
+    }
+  ]
+}
