@@ -1,6 +1,12 @@
 # modbus-udp
 A simple modbus (RTU) UDP proxy.
 
+## Installation
+Requires Node.js.
+`npm install`
+`npm run`
+
+## Introduction
 This was specifically designed to integrate modbus systems with the 
 [eibPort](http://bab-tec.de/index.php/eibport_v3_en.html) but can be used for
 other purposes as well. The proxy sends periodic updates over certain modbus
