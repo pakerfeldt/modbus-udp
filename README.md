@@ -5,7 +5,7 @@ A simple modbus (RTU) UDP proxy.
 Requires Node.js.
 ```zsh
 npm install
-npm run
+npm start
 ```
 
 ## Introduction
