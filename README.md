@@ -79,7 +79,7 @@ The proxy sends register values to the specified host and port using UDP. The fo
 
 ## Reading registers
 ### Performance optimizations
-In case you want to read multiple adjacents registers you can do so by specifying their identifiers in an array, see example json above. Not only does it make your configuration smaller, it's also a performance optimization since the proxy is able to read multiple registers in one single modbus request.
+In case you want to read multiple adjacent registers you can do so by specifying their identifiers in an array, see example json above. Not only does it make your configuration smaller, it's also a performance optimization since the proxy is able to read multiple registers in one single modbus request.
 ### Length
 The `length` key is optional and defaults to 1. I.e. a value is stored in one (2 byte) register. Sometimes slaves stores values using two or more registers. E.g. a 4 byte value can be stored in two registers. Use `length` to specify how many registers are used per value.
 ### Converter methods
