@@ -11,14 +11,14 @@ npm run
 ## Introduction
 This was specifically designed to integrate modbus systems with the 
 [eibPort](http://bab-tec.de/index.php/eibport_v3_en.html) but can be used for
-other purposes as well. The proxy sends periodic updates over certain modbus
-registers over UDP. It also listens for commands over UDP which is one of
-`read` (to manually request a register update) or `write` (to write data).
+other purposes as well. The proxy sends periodic updates for certain modbus
+registers over UDP. It also listens for commands over UDP. Valid commmands
+are`read` (to manually request a register update) and `write` (to write data).
 
 It is possible to connect to multiple modbus networks if you have more than
-one modbus adapters registered.
+one rs485 adapters connected.
 
-The important path is in the config.json, here's an example of that file with
+The important part is in the config.json, here's an example of that file with
 inline comments. Note that this is not a valid configuration because of its
 comments (proper json can't have comments).
 ```
@@ -78,6 +78,8 @@ The proxy listens for incoming UDP messages on the specified port. The format is
 The proxy sends register values to the specified host and port using UDP. The format is `[register id] [value]`, e.g. `temp_setpoint 21`. Proxy polls modbus registers using the [crontab](https://github.com/ncb000gt/node-cron) pattern specified in `defaultPoll`. It can also poll a single specific register manually when receiving the `read` command over UDP.
 
 ## Reading registers
+### Performance optimizations
+In case you want to read multiple adjacents registers you can do so by specifying their identifiers in an array, see example json above. Not only does it make your configuration smaller, it's also a performance optimization since the proxy is able to read multiple registers in one single modbus request.
 ### Length
 The `length` key is optional and defaults to 1. I.e. a value is stored in one (2 byte) register. Sometimes slaves stores values using two or more registers. E.g. a 4 byte value can be stored in two registers. Use `length` to specify how many registers are used per value.
 ### Converter methods
