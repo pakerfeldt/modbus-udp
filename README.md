@@ -9,7 +9,7 @@ npm start
 ```
 
 ## Introduction
-This was specifically designed to integrate modbus systems with the 
+This was specifically designed to integrate modbus systems with the
 [eibPort](http://bab-tec.de/index.php/eibport_v3_en.html) but can be used for
 other purposes as well. The proxy sends periodic updates for certain modbus
 registers over UDP. It also listens for commands over UDP. Valid commmands
@@ -56,7 +56,8 @@ comments (proper json can't have comments).
         "id": ["dhw_time", "dhw_setpoint"], // In case you want to read multiple adjacents registers, identify them in an array
         "slaveid": 3,
         "type": "input",
-        "address": 206                      // This is now the starting address (of dhw_time in this case), dhw_Setpoint will be 207, etc.
+        "address": 206,                     // This is now the starting address (of dhw_time in this case), dhw_Setpoint will be 207, etc.
+        "writeOnlyOnChange": true           // [Optional] Will ignore write requests if value hasn't changed
       }, {
         "id": ["import_wh", "export_wh"],
         "slaveid": 4,
@@ -83,7 +84,7 @@ In case you want to read multiple adjacent registers you can do so by specifying
 ### Length
 The `length` key is optional and defaults to 1. I.e. a value is stored in one (2 byte) register. Sometimes slaves stores values using two or more registers. E.g. a 4 byte value can be stored in two registers. Use `length` to specify how many registers are used per value.
 ### Converter methods
-Often it is required for register values to be converted before sending them off to the receiver. Currently there are two converter methods. `tenths` for dividing the input with 10. E.g. if a register would represent a temperature value like 10.5 (°C) as 105. `float32` is used to convert two registers into a floating point value. This needs to be used in conjunction with `length: 2` since it requires 4 bytes for certain modbus slaves. 
+Often it is required for register values to be converted before sending them off to the receiver. Currently there are two converter methods. `tenths` for dividing the input with 10. E.g. if a register would represent a temperature value like 10.5 (°C) as 105. `float32` is used to convert two registers into a floating point value. This needs to be used in conjunction with `length: 2` since it requires 4 bytes for certain modbus slaves.
 
 Do you need a certain converter method for you slave? Create an [issue](https://github.com/pakerfeldt/modbus-udp/issues).
 
