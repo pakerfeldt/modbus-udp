@@ -33,9 +33,9 @@
         "slaveid": 3,
         "type": "input",
         "address": 206,
-        "writeOnlyOnChange": true
+        "writeOnAllChanges": true
       }, {
-        "id": ["import_wh", "export_wh"],
+        "id": ["import_wh", "_", "export_wh"],
         "slaveid": 4,
         "type": "input",
         "address": 72,

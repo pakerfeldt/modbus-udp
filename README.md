@@ -57,9 +57,10 @@ comments (proper json can't have comments).
         "slaveid": 3,
         "type": "input",
         "address": 206,                     // This is now the starting address (of dhw_time in this case), dhw_Setpoint will be 207, etc.
-        "writeOnlyOnChange": true           // [Optional] Will ignore write requests if value hasn't changed
+        "writeOnAllChanges": true           // [Optional] Will write all requests (default to only if value has changed)
       }, {
-        "id": ["import_wh", "export_wh"],
+        "id": ["import_wh", "_",            // _ can be used as name for registers that should be ignored
+          "export_wh"],
         "slaveid": 4,
         "type": "input",
         "address": 72,
